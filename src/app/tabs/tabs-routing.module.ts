@@ -4,31 +4,35 @@ import { TabsPage } from './tabs.page';
 
 const routes: Routes = [
   {
-    path: 'tabs',
+    path: 'pages',
     component: TabsPage,
     children: [
       {
-        path: 'tab1',
-        loadChildren: () => import('../tab1/tab1.module').then(m => m.Tab1PageModule)
+        path: 'space',
+        loadChildren: () => import('../pages/space/space.module').then(m => m.SpacePageModule)
       },
       {
-        path: 'tab2',
-        loadChildren: () => import('../tab2/tab2.module').then(m => m.Tab2PageModule)
+        path: 'work',
+        loadChildren: () => import('../pages/work/work.module').then(m => m.WorkPageModule)
       },
       {
-        path: 'tab3',
-        loadChildren: () => import('../tab3/tab3.module').then(m => m.Tab3PageModule)
+        path: 'share',
+        loadChildren: () => import('../pages/share/share.module').then(m => m.SharePageModule)
+      },
+      {
+        path: 'me',
+        loadChildren: () => import('../pages/me/me.module').then(m => m.MePageModule)
       },
       {
         path: '',
-        redirectTo: '/tabs/tab1',
+        redirectTo: '/pages/space',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/tab1',
+    redirectTo: '/pages/space',
     pathMatch: 'full'
   }
 ];
